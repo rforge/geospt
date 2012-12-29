@@ -23,7 +23,7 @@ LazyLoad: \tab yes\cr
 \author{
 Carlos Melo <cmelo@udistrital.edu.co>, Alí Santacruz, Oscar Melo <oomelom@unal.edu.co> and others
 
-Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
+Maintainer: Alí Santacruz <amsantac@unal.edu.co>
 }
 \keyword{ package }
 \keyword{ spatial }
