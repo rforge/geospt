@@ -1,7 +1,7 @@
 Package: geospt
 Type: Package
 Title: Spatial geostatistics; some geostatistical and radial basis functions, prediction and cross validation; design of optimal spatial sampling networks based on geostatistical modelling
-Version: 0.5-2
+Version: 1.0-0
 Date: 2012-04-19
 Author: Carlos Melo <cmelo@udistrital.edu.co>, Alí Santacruz, Oscar Melo <oomelom@unal.edu.co> and others
 Maintainer: Alí Santacruz <amsantac@unal.edu.co>
