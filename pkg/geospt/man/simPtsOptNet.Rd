@@ -77,6 +77,7 @@ Delmelle, E., 2005. \emph{Optimization of second-phase spatial sampling using au
 See \code{\link[genalg]{rbga}} in the \code{genalg} package and \code{\link[gstat]{krige}} in the \code{gstat} package
 }
 \examples{
+\dontrun{
 ## Load data
 data(COSha30)
 data(COSha30map)
@@ -93,13 +94,13 @@ m.esf <- vgm(PSI, "Sph", RAN, NUG)
 npoints <- 5
 
 ## Optimize the location of the additional points
-## Only 25 generations are evaluated in this example (using ordinary kriging)
+## Only 20 generations are evaluated in this example (using ordinary kriging)
 ## Users can visualize how the location of the additional points is optimized 
 ## if plotMap is set to TRUE
 old.par <- par(no.readonly = TRUE)
 par(ask=FALSE)
 optnets <- simPtsOptNet(CorT~ 1, loc=~x+y, COSha30, m.f.esf, n=npoints, 
-    popSize=30, generations=25, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], 
+    popSize=30, generations=20, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], 
     xmax=bbox(lalib)[3], ymax=bbox(lalib)[4], plotMap=TRUE, spMap=lalib)
 par(old.par)
 
@@ -121,6 +122,7 @@ spplot(COSha30map, "var1.pred", main="Location of the optimized points",
 
 ## Average standard error of the optimized additional points
 min(optnets$evaluations)
+}
 
 ## Multivariate prediction is also enabled:
 \dontrun{

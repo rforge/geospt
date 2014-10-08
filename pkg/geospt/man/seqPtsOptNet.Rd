@@ -92,13 +92,13 @@ m.esf <- vgm(PSI, "Sph", RAN, NUG)
 (m.f.esf <- fit.variogram(ve, m.esf))
 
 ## Optimize the location of the first additional point 
-## Only 25 generations are evaluated in this example (using ordinary kriging)
+## Only 15 generations are evaluated in this example (using ordinary kriging)
 ## Users can visualize how the location of the additional point is optimized 
 ## if plotMap is set to TRUE
 old.par <- par(no.readonly = TRUE)
 par(ask=FALSE)
 optpt <- seqPtsOptNet(CorT~ 1, loc=~x+y, COSha10, m.f.esf, popSize=30, 
-    generations=25, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], xmax=bbox(lalib)[3], 
+    generations=15, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], xmax=bbox(lalib)[3], 
     ymax=bbox(lalib)[4], plotMap=TRUE, spMap=lalib)
 par(old.par)
 
@@ -123,20 +123,22 @@ min(optpt$evaluations)
 
 ## Optimize the location of the second sequential point, taking into account 
 ## the first one
+\dontrun{
 plot(lalib)
 old.par <- par(no.readonly = TRUE)
 par(ask=FALSE)
 optpt2 <- seqPtsOptNet(CorT~ 1, loc=~x+y, COSha10, m.f.esf, prevSeqs=bnet1, 
-    popSize=30, generations=25, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], 
+    popSize=30, generations=15, xmin=bbox(lalib)[1], ymin=bbox(lalib)[2], 
     xmax=bbox(lalib)[3], ymax=bbox(lalib)[4], plotMap=TRUE, spMap=lalib)
 par(old.par)
+}
 
 ## Find the second optimal sequential point and use it, along with the first
 ## one, to find another optimal sequential point, and so on iteratively  
+\dontrun{
 bnet2 <- bestnet(optpt2)
 bnet <- rbind(bnet1, bnet2)
 
-\dontrun{
 old.par <- par(no.readonly = TRUE)
 par(ask=FALSE)
 optpt3 <- seqPtsOptNet(CorT~ 1, loc=~x+y, COSha10, m.f.esf, prevSeqs=bnet,

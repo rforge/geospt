@@ -36,6 +36,7 @@ returns the \code{ASEPE} value associated with the spatial distribution of point
 \code{\link{krige}},  \code{\link{krige.cv}}, \code{\link{spsample}}, \code{\link{point.in.polygon}}, \code{\link{sample}} 
 }
 \examples{
+\dontrun{
 ### regular grid 10x10
 vgm1 <- vgm(112.33, "Sph", 4.3441,0)
 # network: ordinary kriging (without boundary)
@@ -47,6 +48,7 @@ net2.ok <- network.design(z~1,vgm1, xmin=0,xmax=10, ymin=0, ymax=10, npoint.x=20
 # but for this example, the same variogram is used just to show how the function works
 
 # network: simple kriging (without boundary)
+
 net1.sk <- network.design(z~1,vgm1, xmin=0,xmax=10, ymin=0, ymax=10, npoint.x=10, 
     npoint.y=10, nmax=6, beta=2)
 net2.sk <- network.design(z~1,vgm1, xmin=0,xmax=10, ymin=0, ymax=10, npoint.x=20, 
@@ -56,6 +58,7 @@ net1.uk <- network.design(z~x + y + x*y + I(x^2)+I(y^2),vgm1, xmin=0,xmax=10, ym
     ymax=10, npoint.x=10, npoint.y=10, nmax=8)
 net2.uk <- network.design(z~x + y + x*y + I(x^2)+I(y^2),vgm1, xmin=0,xmax=10, ymin=0, 
     ymax=10, npoint.x=20, npoint.y=20, nmax=8)
+
 
 # Creating the grid with the prediction and plotting points
 library(geoR)
@@ -76,6 +79,7 @@ netb1.uk <- network.design(z~x + y + x*y + I(x^2)+I(y^2), vgm2, npoints=50,
     boundary=Polygon, nmax=8)
 netb2.uk <- network.design(z~x + y + x*y + I(x^2)+I(y^2), vgm2, npoints=100, 
     boundary=Polygon, nmax=8)
+}
 }
 
 \keyword{ spatial }
