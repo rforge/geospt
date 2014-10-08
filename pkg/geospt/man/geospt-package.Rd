@@ -3,8 +3,7 @@
 \alias{geospt}
 \docType{package}
 \title{
-Spatial geostatistics; some geostatistical and radial basis functions, prediction and cross validation; 
-design of optimal spatial sampling networks based on geostatistical modelling
+Geostatistical Analysis and Design of Optimal Spatial Sampling Networks
 }
 \description{
 A set of functions for: estimation of the variogram through trimmed mean, radial basis functions 
